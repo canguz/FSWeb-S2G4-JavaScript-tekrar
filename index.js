@@ -50,8 +50,9 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yaricap) {
+  let cevre = 2 * pi * yaricap;
+  return cevre;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,8 +65,9 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yaricap, pi) {
+  let alan = pi * Math.pow(yaricap, 2);
+  return alan;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -99,27 +101,56 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-/* kodlar buraya */
+enkucuk = sayilar[0];
+enbuyuk = sayilar[0];
+for (let i = 1; i < sayilar.length; i++) {
+    if (sayilar[i] < enkucuk) {
+        enkucuk = sayilar[i];
+    }
+    if (sayilar[i] > enbuyuk) {
+        enbuyuk = sayilar[i];
+    }
+}
 
 // 3b çözümü:
 
 /* kodlar buraya */
-
+ucetambolunenler = [];
+sayilar.forEach(sayi => {
+    if (sayi % 3 === 0) {
+        ucetambolunenler.push(sayi);
+    }
+});
 // 3c çözümü:
 
 /* kodlar buraya */
+ucebolunenlerintoplami = ucetambolunenler.reduce((d1, d2) => d1 + d2, 0);
 
 // 3d çözümü
 
 /* kodlar buraya */
-
+besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
 // 3e çözümü
-
+siralisayilar = besyuzdenkucuksayilar.slice().sort((a, b) => a - b);
 /* kodlar buraya */
 
 // 3f çözümü
+tekraredensayilar = [];
+let sayiTekrar = {};
+for (let i = 0; i < sayilar.length; i++) {
+    let sayi = sayilar[i];
+    if (sayiTekrar[sayi] === undefined) {
+        sayiTekrar[sayi] = 1;
+    } else {
+        sayiTekrar[sayi]++;
+    }
+}
+for (let sayi in sayiTekrar) {
+    if (sayiTekrar[sayi] > 1) {
+        tekraredensayilar.push(`${sayi} sayısı ${sayiTekrar[sayi]} kere tekrar edilmiştir`);
+    }
+}
 
-/* kodlar buraya */
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
